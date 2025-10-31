@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page_title }} - {{ block.super }}{% endblock title %}
+
+{% block content %}
+<h1>{{ page_title }}</h1>
+<p>This is the home page of our SaaS application.</p>
+{% include 'snippets/welcome.html' %}
+<h2>Page Visits Log</h2>
+<ul>Page Visits: {{ page_visit_count }}</ul>
+<ul>Total Page Visits: {{ total_visit_count }}</ul>
+<ul>Percentage of Visits: {{ percent_page_visits }}</ul>
+{% endblock content %}
+
+
+
