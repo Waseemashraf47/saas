@@ -9,3 +9,4 @@ class PageVisit(models.Model):
 
     # def __str__(self):
     #     return f"Visited {self.path} at {self.timestamp}"
+    # 1H23Minutes

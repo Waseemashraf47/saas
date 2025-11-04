@@ -7,9 +7,17 @@ this_dir = pathlib.Path(__file__).parent
 
 
 def home_view(request, *args, **kwargs):
+    return about_view(request, *args, **kwargs)
+
+
+def about_view(request, *args, **kwargs):
     qs = PageVisit.objects.all()
     page_qs = PageVisit.objects.filter(path=request.path)
     page_title = "Home Page"
+    try:
+        percent_page_visits = (page_qs.count() / qs.count()) * 100 if qs.count() > 0 else 0
+    except ZeroDivisionError:
+        percent_page_visits = 0
     context = {
         'page_title': page_title,
         'qs': qs,
